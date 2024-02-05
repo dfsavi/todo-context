@@ -7,6 +7,14 @@ export const TodoContext = React.createContext<{
   dispatch: React.Dispatch<TodoAction>;
 } | null>(null);
 
+export const useTodoContext = () => {
+  const context = React.useContext(TodoContext);
+  if (!context) {
+    throw new Error('useTodoContext must be used within a TodoProvider');
+  }
+  return context;
+};
+
 const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [todos, dispatch] = React.useReducer(todoReducer, [
     { id: 1, title: 'Learn React', description: "Example desc", completed: true },

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { TodoContext } from '../context/todoContext';
+import { useTodoContext } from '../context/todoContext';
 import { ITodo } from '../@types/todo';
 
 const AddTodo: React.FC = () => {
-  const { dispatch } = React.useContext(TodoContext)!;
+  const { dispatch } = useTodoContext()
   const [formData, setFormData] = React.useState<ITodo | {}>();
   const handleForm = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({

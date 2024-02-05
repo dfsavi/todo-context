@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ITodo } from '../@types/todo';
-import { TodoContext } from '../context/todoContext';
+import { useTodoContext } from '../context/todoContext';
 import Todo from '../components/Todo';
 
 const Todos = () => {
-  const { todos, dispatch } = React.useContext(TodoContext)!;
+  const { todos, dispatch } = useTodoContext()
   return (
     <>
       {todos.map((todo: ITodo) => (
