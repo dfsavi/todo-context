@@ -3,7 +3,7 @@ import { ITodo } from '../@types/todo';
 
 type Props = {
   todo: ITodo;
-  completeTodo: (id: number) => void;
+  completeTodo: () => void;
 };
 
 const Todo: React.FC<Props> = ({ todo, completeTodo }) => {
@@ -14,7 +14,7 @@ const Todo: React.FC<Props> = ({ todo, completeTodo }) => {
         <h1 className={checkTodo}>{todo.title}</h1>
         <span className={checkTodo}>{todo.description}</span>
       </div>
-      <button onClick={() => completeTodo(todo.id)} className={todo.completed ? `hide-button` : 'Card--button'}>
+      <button onClick={() => completeTodo()} className={todo.completed ? `hide-button` : 'Card--button'}>
         Complete
       </button>
     </div>
